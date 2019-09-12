@@ -143,6 +143,16 @@ redis() {
   docker exec -it $redisLabel redis-cli
 }
 
+kcdebug() { 
+  if [ $# -eq 0 ]
+  then
+    kubectl run my-shell --rm -i --tty --image=busybox --restart=Never -- sh
+  else
+    kubectl run my-shell -n $1 --rm -i --tty --image=busybox --restart=Never -- sh
+  fi
+}
+
+
 ## Commands run as docker
 alias curl='docker run --rm radial/busyboxplus:curl curl $@'
 alias git='docker run --rm radial/busyboxplus:git git $@'
