@@ -157,3 +157,7 @@ kcdebug() {
 ## Commands run as docker
 alias curl='docker run --rm radial/busyboxplus:curl curl $@'
 alias git='docker run --rm radial/busyboxplus:git git $@'
+
+## velero heptio ark
+## Usage: velero backup get
+alias velero='docker run -it --rm -v$HOME:$HOME --net=host --user=`whoami` gcr.io/heptio-images/velero:v1.1.0 $@'
