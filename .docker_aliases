@@ -146,6 +146,7 @@ redis() {
 kcdebug() { 
   if [ $# -eq 0 ]
   then
+    echo "Namespace was not specified. Using default. Usage: kcdebug <namespace>
     kubectl run my-shell --rm -i --tty --image=busybox --restart=Never -- sh
   else
     kubectl run my-shell -n $1 --rm -i --tty --image=busybox --restart=Never -- sh
