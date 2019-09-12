@@ -142,3 +142,7 @@ redis() {
   redisLabel=`docker ps | grep redis | awk '{print $NF}'`
   docker exec -it $redisLabel redis-cli
 }
+
+## Commands run as docker
+alias curl='docker run --rm radial/busyboxplus:curl curl $@'
+alias git='docker run --rm radial/busyboxplus:git git $@'
